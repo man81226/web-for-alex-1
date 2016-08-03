@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<title>Update</title>
+</head>
+<body>
+
+<div data-role="page">
+<div data-role="header">
+    <a href="../mainpage/mainpage.html" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+    <h1>Update</h1>
+ 	<a href="../information/information.html" class="ui-btn ui-corner-all 		ui-icon-grid 	ui-shadow			ui-btn-icon-left">Info</a>
+  </div>
+  
+   <div data-role="main" class="ui-content">
+    <div> <h2></h2> </div>
+<script>
+//$(document).on('pagecreate','pageID', function() {
+	$(document).ready(function() {
+
+	$("#update").on('click',function() {
+		var username	=$("#updateusername")	.val();
+		var oldpass		=$("#updateoldpassword").val();
+		var newpass		=$("#updatenewpassword").val();
+		var renewpass	=$("#re_updatepassword").val();
+	
+	
+	
+	if (username == '' || oldpass == '' || newpass == '' || renewpass == '' ) {
+
+		alert("Please Fill All Fields !");
+
+	
+	
+	}else if(renewpass==newpass){
+		//alert("Your Account have been updated");
+			window.location.href = '../update/successupdate.html';					
+
+	}else{
+		alert("Password Doesn't Match");
+	    return;	
+	}
+	
+    var myData = 'username='+username+
+					'&oldpass='+oldpass+
+						'&newpass='+newpass+
+							'&renewpass='+renewpass;
+	 			
+        $.ajax({
+  		  	 	url	:	'update.php',
+  			   type	:	"PUT",
+           dataType : 	'text',
+  			   data	:	myData,
+        	success	: 	function(msg, status){
+    				alert(msg);
+        
+                },
+                 error:function(xhr, ajaxOptions, thrownError){
+                    alert(xhr.status);
+                    alert(thrownError);
+                 }
+            });
+   
+	});
+});
+</script>
+</head> 
+
+<body> 
+<input type="text"		id="updateusername"			placeholder="Username" 			required><br>
+<input type="password" 	id="updateoldpassword" 		placeholder="Old Password" 		required><br>
+<input type="password" 	id="updatenewpassword" 		placeholder="New Password" 		required><br>
+<input type="password" 	id="re_updatepassword" 		placeholder="Re New Password" 	required><br>
+    <div data-role="controlgroup" data-theme="b">
+
+<center><a id="update"><button>Update</button></a></center><br><br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<title>Delete</title>
+</head>
+<body>
+<div data-role="page">
+<div data-role="header"> <a href="../mainpage/mainpage.html" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+  <h1>Delete</h1>
+   	<a href="../information/information.html" class="ui-btn ui-corner-all 		ui-icon-grid 	ui-shadow			ui-btn-icon-left">Info</a>
+
+   </div>
+<div data-role="main" class="ui-content">
+<div>
+  <h2>Delete</h2>
+</div>
+<script>
+
+	
+
+
+
+	
+
+
+//==============Delete review===============
+$("#delete").on('click',function() {
+	     var username=$("#deleteusername").val();
+    var password=$("#deletepassword").val();
+
+    var myData = 'username='+username+'&password='+password;
+              
+        $.ajax({
+          url:'delete',
+          type:"DELETE",
+          dataType : 'text',
+          data:myData,
+        success: function(msg, status){
+            alert(msg);
+           
+                },
+                 error:function(xhr, ajaxOptions, thrownError){
+                    alert(xhr.status);
+                    alert(thrownError);
+                 }
+            });
+   
+});
+
+
+
+
+</script>
+</head> 
+<body>
+<input type="text" 		id="deleteusername" placeholder="Username"><br>
+<input type="password" id="deletepassword" placeholder="Password"><br>
+
+    <div data-role="controlgroup" data-theme="b">
+
+<button id="delete">DELETE</button>
+</div>
+</body>
+</html>

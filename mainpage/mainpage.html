@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<title>MainPage</title>
+</head>
+<body>
+<h1>Drug</h1>
+<div data-role="page">
+  <div data-role="header">
+  <h1>Drug</h1>
+    <a href="#" class="ui-btn ui-corner-all 		ui-shadow 		ui-icon-home 		ui-btn-icon-left">Home</a>
+    </div>   
+  <div align="center" data-role="main" class="ui-content">
+  <div class="example"></div></div>
+
+<script src="js/l-by-l.min.js"></script>
+<script src="js/l-byl.js"></script>
+<script>
+jQuery(document).ready(function($){
+    $(".example").lbyl({
+        content: "Many people do not understand why or how other people become addicted to drugs. It is often mistakenly assumed that drug abusers lack moral principles or willpower and that they could stop using drugs simply by choosing to change their behavior. In reality, drug addiction is a complex disease, and quitting takes more than good intentions or a strong will.",
+        speed: 15,
+        type: 'show',
+        fadeSpeed: 500, // Only relevant when the 'type' is set to 'fade'
+        finished: function(){ console.log('finished') } // Finished Callback
+    });
+});
+</script>
+  <div data-role="footer" style="text-align:center;">
+    <div data-role="controlgroup" data-type="horizontal">
+      <a href="../login/login.html" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">LogIn</a>
+    	<a href="../register/register.html" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">Create New Account</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
